@@ -13,7 +13,7 @@ require Exporter;
 @ISA = qw(Exporter AutoLoader Business::OnlinePayment);
 @EXPORT = qw();
 @EXPORT_OK = qw();
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 $DEBUG = 0;
 
@@ -194,7 +194,7 @@ sub submit {
     }
     
     my $type = lc($content{'type'});
-    if ( $type eq 'echeck' ) {
+    if ( $type eq 'check' ) {
     } else {
       croak "$type not (yet) supported";
     }
@@ -204,7 +204,7 @@ sub submit {
 	PRODUCT_ID      => \($self->product_id()),
 	MERCHANT_ID     => 'login',
 	VERSION         => \'1.0',
-	SOR             => \'Y',
+	SOR             => \'N',
 	REMOTE_ADDR     => \'10.0.0.1',
 	TERMS_AGREE     => \'Y',
 	CHECK_AGE       => \'Y',
@@ -270,15 +270,16 @@ Business::OnlinePayment::Jettis - Jettis backend for Business::OnlinePayment
 
   my $tx = new Business::OnlinePayment("Jettis");
   $tx->content(
-      type           => 'ECHECK',
+      type           => 'CHECK',
       login          => 'test', #ClientID
       action         => 'Normal Authorization',
       description    => 'Business::OnlinePayment test',
       amount         => '49.95',
       invoice_number => '100100',
       name           => 'Tofu Beast',
-      card_number    => '4007000000027',
-      expiration     => '09/02',
+      account_number => '12345',
+      routing_code   => '123456789',
+      bank_name      => 'First National Test Bank',
   );
   $tx->submit();
 
@@ -294,7 +295,7 @@ For detailed information see L<Business::OnlinePayment>.
 
 =head1 NOTE
 
-This module only implements 'ECHECK' (ACH) functionality at this time.  Credit
+This module only implements 'CHECK' (ACH) functionality at this time.  Credit
 card transactions are not (yet) supported.
 
 =head1 COMPATIBILITY

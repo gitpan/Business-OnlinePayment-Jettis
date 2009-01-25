@@ -1,21 +1,16 @@
-Copyright (c) 1999/2000 University of New South Wales
 Copyright (c) 2002 Ivan Kohler
+Copyright (c) 2009 Freeside Internet Services, Inc.
 
 All rights reserved. This program is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.
 
-This is Business::OnlinePayment::OCV, an Business::OnlinePayment backend
-module for the Ingenico Online Credit Verification Server (OCV).  It is only
-useful if you have a merchant account with Ingenico:
-http://www.ingenico.com.au
+This is Business::OnlinePayment::Jettis, an Business::OnlinePayment backend
+module for the Jettis payment gateway.  It is only useful if you have a
+merchant account with Jettis: http://www.jettis.com/
 
-Currently, it is mostly a wrapper around Business::OCV written by Benjamin
-Low <b.d.low@unsw.edu.au>.  Eventually it will be self-contained.
+At this time, only ACH (electronic check) transactions are supported.
 
-There are tests in t2/ that may be useful to you once you have a test server
-setup.
-
-Ivan Kohler <ivan-ocv@420.am>
+Ivan Kohler <ivan-jettis@420.am>
 
 Business::OnlinePayment is a generic interface for processing payments through
 online credit card processors, online check acceptance houses, etc.  (If you

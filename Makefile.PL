@@ -6,9 +6,9 @@ WriteMakefile(
     'VERSION_FROM' => 'Jettis.pm', # finds $VERSION
     'AUTHOR'       => 'Ivan Kohler <ivan-jettis@420.am>',
     #'NORECURS'     => 1, # dont descend into subdirectories
-    'PREREQ_PM'    => { 'Net::SSLeay' => 0,
+    'PREREQ_PM'    => { 'Net::SSLeay' => '0',
                         #'Text::CSV_XS' => 0,
-                        'Business::OnlinePayment' => 0,
+                        'Business::OnlinePayment' => '0',
                         #'Business::CreditCard' => 0.27,
                       },
 );
